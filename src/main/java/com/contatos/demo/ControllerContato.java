@@ -28,4 +28,14 @@ public class ControllerContato {
         return service.findById(id);
     }
 
+    @GetMapping("/favoritos")
+    public List<Contato> findAllFavoritos(){
+        return  service.listaContatosFavoritos();
+    }
+
+    @PutMapping("/{id}")
+    public Contato updateContato(@RequestBody DTOContato dtoContato, @PathVariable Integer id){
+        return service.updateContato(dtoContato, id);
+    }
+
 }
